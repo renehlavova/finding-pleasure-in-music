@@ -24,7 +24,7 @@ head(music_ia)
 dich = function(variable, categories) {
   midpoint = categories / 2
   even = as.logical(ifelse((midpoint-trunc(midpoint))==0, "TRUE", "FALSE"))
-  midpoint = ifelse(even==TRUE, midpoint, midpoint+.5) # zkontrolovat s peťou, jestli prostřední hodnotu dát jako 0 nebo 1
+  midpoint = ifelse(even==TRUE, midpoint, midpoint+.5) 
   if(even==FALSE) variable[variable==midpoint] = NA
   variable = ifelse(variable<midpoint, 0, 1)
 }
@@ -193,7 +193,7 @@ ggplot(music_ia, aes(x=countries, y=supp12, fill=countries)) +
   geom_boxplot() + 
   theme_classic()
 
-##### ZNOVU BEZ POLOŽKY 10
+##### AGAIN WITHOUT ITEM 10
 # scoring
 which(colnames(supp)==c("supp1", "supp2"))
 supp.keys.list = list(supp_family = c(3, 4, 8, 11),
@@ -306,7 +306,7 @@ barcelona.alpha.table
 output.omega.overall.bmrq = omega(bmrq, nfactors = 5)
 output.omega.overall.bmrq
 
-# cfa 5 faktorů
+# cfa 5 factors
 bmrq.model = 'barcelona_ms =~ barc2_hardly_listen + barc7_inform_self + barc11_newmusic + barc17_spending
               barcelona_ee =~ barc3_contain_emot + barc8_get_emotional + barc12_tearful + barc18_chills
               barcelona_mr =~ barc4_gives_company + barc9_calms + barc14_chill_out + barc19_comforts
@@ -318,7 +318,7 @@ summary(fit.bmrq.cfa, fit.measures=T)
 
 modindices(fit.bmrq.cfa)
 
-# cfa 1 faktor 
+# cfa 1 factor 
 bmrq.model2 = 'barcelona =~ barc2_hardly_listen + barc7_inform_self + barc11_newmusic + barc17_spending + barc3_contain_emot + barc8_get_emotional + barc12_tearful + barc18_chills + barc4_gives_company + barc9_calms + barc14_chill_out + barc19_comforts + barc5_no_dance + barc10_dance + barc15_humming + barc20_tapping + barc1_sharing + barc6_bonding + barc13_sing_with_others + barc16_concert_connect'
 
 fit.bmrq.cfa2 = cfa(bmrq.model2, data = bmrq, estimator="MLR", missing="fiml")
@@ -462,7 +462,7 @@ ggplot(music_ia, aes(x=countries, y=barc20_tapping, fill=countries)) +
   geom_boxplot() + 
   theme_classic()
 
-##### ZNOVU BEZ POLOŽKY 20
+##### AGAIN WITHOUT ITEM 20
 # scoring
 bmrq.keys.list = list(barcelona_total = c(1, -2, 3, 4, -5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19)) # items in the subscales
 bmrq.keys = make.keys(bmrq, bmrq.keys.list, item.labels = colnames(bmrq)) # create the scoring key itself
@@ -483,7 +483,7 @@ bmrq.model2 = 'bmrq.uni =~ barc1_sharing + barc2_hardly_listen + barc3_contain_e
 fit.bmrq.cfa2 = cfa(bmrq.model2, data = bmrq, estimator="MLR", missing="fiml")
 summary(fit.bmrq.cfa2, fit.measures=T)
 
-##### ZNOVU BEZ POLOŽKY 20 + 5
+##### AGAIN WITHOUT ITEMS 20 + 5
 # scoring
 bmrq.keys.list = list(barcelona_total = c(1, -2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19)) # items in the subscales
 bmrq.keys = make.keys(bmrq, bmrq.keys.list, item.labels = colnames(bmrq)) # create the scoring key itself
@@ -504,7 +504,7 @@ bmrq.model3 = 'bmrq.uni =~ barc1_sharing + barc2_hardly_listen + barc3_contain_e
 fit.bmrq.cfa3 = cfa(bmrq.model3, data = bmrq, estimator="MLR", missing="fiml")
 summary(fit.bmrq.cfa3, fit.measures=T)
 
-##### ZNOVU BEZ POLOŽKY 20 + 5 + 2
+##### AGAIN WITHOUT ITEMS 20 + 5 + 2
 # scoring
 bmrq.keys.list = list(barcelona_total = c(1, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19)) # items in the subscales
 bmrq.keys = make.keys(bmrq, bmrq.keys.list, item.labels = colnames(bmrq)) # create the scoring key itself
@@ -525,7 +525,7 @@ bmrq.model4 = 'bmrq.uni =~ barc1_sharing + barc3_contain_emot + barc4_gives_comp
 fit.bmrq.cfa4 = cfa(bmrq.model4, data = bmrq, estimator="MLR", missing="fiml")
 summary(fit.bmrq.cfa4, fit.measures=T)
 
-##### ZNOVU BEZ POLOŽKY 20 + 5 + 2 + 10
+##### AGAIN WITHOUT ITEMS 20 + 5 + 2 + 10
 # scoring
 bmrq.keys.list = list(barcelona_total = c(1, 3, 4, 6, 7, 8, 9, 11, 12, 13, 14, 15, 16, 17, 18, 19)) # items in the subscales
 bmrq.keys = make.keys(bmrq, bmrq.keys.list, item.labels = colnames(bmrq)) # create the scoring key itself
@@ -546,7 +546,7 @@ bmrq.model5 = 'bmrq.uni =~ barc1_sharing + barc3_contain_emot + barc4_gives_comp
 fit.bmrq.cfa5 = cfa(bmrq.model5, data = bmrq, estimator="MLR", missing="fiml")
 summary(fit.bmrq.cfa5, fit.measures=T)
 
-##### ZNOVU BEZ POLOŽKY 20 + 5 + 2 + 10 + 15
+##### AGAIN WITHOUT ITEMS 20 + 5 + 2 + 10 + 15
 # scoring
 bmrq.keys.list = list(barcelona_total = c(1, 3, 4, 6, 7, 8, 9, 11, 12, 13, 14, 16, 17, 18, 19)) # items in the subscales
 bmrq.keys = make.keys(bmrq, bmrq.keys.list, item.labels = colnames(bmrq)) # create the scoring key itself
@@ -567,7 +567,7 @@ bmrq.model6 = 'bmrq.uni =~ barc1_sharing + barc3_contain_emot + barc4_gives_comp
 fit.bmrq.cfa6 = cfa(bmrq.model6, data = bmrq, estimator="MLR", missing="fiml")
 summary(fit.bmrq.cfa6, fit.measures=T)
 
-##### ZNOVU BEZ POLOŽKY 20 + 5 + 2 + 10 + 15 + 9
+##### AGAIN WITHOUT ITEMS 20 + 5 + 2 + 10 + 15 + 9
 # scoring
 bmrq.keys.list = list(barcelona_total = c(1, 3, 4, 6, 7, 8, 11, 12, 13, 14, 16, 17, 18, 19)) # items in the subscales
 bmrq.keys = make.keys(bmrq, bmrq.keys.list, item.labels = colnames(bmrq)) # create the scoring key itself
@@ -588,7 +588,7 @@ bmrq.model7 = 'bmrq.uni =~ barc1_sharing + barc3_contain_emot + barc4_gives_comp
 fit.bmrq.cfa7 = cfa(bmrq.model7, data = bmrq, estimator="MLR", missing="fiml")
 summary(fit.bmrq.cfa7, fit.measures=T)
 
-##### ZNOVU BEZ POLOŽKY 20 + 5 + 2 + 10 + 15 + 9 + 14
+##### AGAIN WITHOUT ITEMS 20 + 5 + 2 + 10 + 15 + 9 + 14
 # scoring
 bmrq.keys.list = list(barcelona_total = c(1, 3, 4, 6, 7, 8, 11, 12, 13, 16, 17, 18, 19)) # items in the subscales
 bmrq.keys = make.keys(bmrq, bmrq.keys.list, item.labels = colnames(bmrq)) # create the scoring key itself
@@ -609,7 +609,7 @@ bmrq.model8 = 'bmrq.uni =~ barc1_sharing + barc3_contain_emot + barc4_gives_comp
 fit.bmrq.cfa8 = cfa(bmrq.model8, data = bmrq, estimator="MLR", missing="fiml")
 summary(fit.bmrq.cfa8, fit.measures=T)
 
-##### ZNOVU BEZ POLOŽKY 20 + 5 + 2 + 10 + 15 + 9 + 14 + 19
+##### AGAIN WITHOUT ITEMS 20 + 5 + 2 + 10 + 15 + 9 + 14 + 19
 # scoring
 bmrq.keys.list = list(barcelona_total = c(1, 3, 4, 6, 7, 8, 11, 12, 13, 16, 17, 18)) # items in the subscales
 bmrq.keys = make.keys(bmrq, bmrq.keys.list, item.labels = colnames(bmrq)) # create the scoring key itself
@@ -630,7 +630,7 @@ bmrq.model9 = 'bmrq.uni =~ barc1_sharing + barc3_contain_emot + barc4_gives_comp
 fit.bmrq.cfa9 = cfa(bmrq.model9, data = bmrq, estimator="MLR", missing="fiml")
 summary(fit.bmrq.cfa9, fit.measures=T)
 
-##### ZNOVU BEZ POLOŽKY 20 + 5 + 2 + 10 + 15 + 9 + 14 + 19 + 4
+##### AGAIN WITHOUT ITEMS 20 + 5 + 2 + 10 + 15 + 9 + 14 + 19 + 4
 # scoring
 bmrq.keys.list = list(barcelona_total = c(1, 3, 6, 7, 8, 11, 12, 13, 16, 17, 18)) # items in the subscales
 bmrq.keys = make.keys(bmrq, bmrq.keys.list, item.labels = colnames(bmrq)) # create the scoring key itself
@@ -820,7 +820,7 @@ ggplot(music_ia, aes(x=countries, y=panas20_afraid, fill=countries)) +
   geom_boxplot() + 
   theme_classic()
 
-####### ZNOVU BEZ POLOŽKY EXCITED 
+##### AGAIN WITHOUT ITEM EXCITED 
 # scoring
 which(colnames(panas)==c("panas1_interested"))
 panas.keys.list = list(panas_p = c(1, 5, 9, 10, 12, 14, 16, 17, 19),
@@ -857,7 +857,7 @@ ggplot(music_ia, aes(x=countries, y=panas_p, fill=countries)) +
   geom_boxplot() + 
   theme_classic()
 
-####### ZNOVU BEZ POLOŽKY GUILTY (6) 
+##### AGAIN WITHOUT ITEM GUILTY (6) 
 # scoring
 which(colnames(panas)==c("panas1_interested"))
 panas.keys.list = list(panas_p = c(1, 5, 9, 10, 12, 14, 16, 17, 19),
